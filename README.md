@@ -1,4 +1,4 @@
-Project for [The Odin Project]("https://www.theodinproject.com/paths/foundations/courses/foundations/lessons/calculator")
+# Project for [The Odin Project]("https://www.theodinproject.com/paths/foundations/courses/foundations/lessons/calculator")
 
 ![Preview Image](./preview.png "Calculator")
 
