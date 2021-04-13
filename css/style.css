@@ -1,19 +1,37 @@
+html {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 body {
+  display: flex;
+  flex-flow:column nowrap;
+  margin-top: 25px;
+  align-items: center;
   background-color: rgb(37, 45, 56);
+}
+
+h1 {
+  color: white;
+  text-decoration: underline;
 }
 
 #calculator {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-  background-color: rgb(185, 209, 255);
+  background-color: rgb(97, 143, 155);
+  border: 1px solid black;
+  border-radius: 5px;
   width: 150px;
   padding: 15px 10px;
 }
 
 #display-div input {
+  padding: 4px;
   text-align: right;
-  width: 125px;
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 120px;
   font-size: 16px;
 }
 
@@ -22,18 +40,31 @@ body {
   margin-top: 15px;
   align-items: flex-end;
   flex-flow: column nowrap;
-  background-color: beige;
+  background-color: black;
+  border-radius: 5px;
+  padding: 1px;
 }
 
 .number-row {
   display: flex;
 }
 
+.operator {
+  background-color: orange;
+}
+
+.equals {
+  background-color: #88c9ff;
+}
+
 #zero {
-  width: 60px !important;
+  width: 62px !important;
 }
 
 #keypad button {
   width: 30px;
+  margin: 1px;
   padding: 5px 10px;
+  border: 1px solid black;
+  border-radius: 5px;;
 }
