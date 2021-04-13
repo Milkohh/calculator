@@ -73,7 +73,11 @@ buttons.forEach((button) => {
       secondNumber = parseInt(display.value, 10);
       display.value = operate(firstNumber, operator, secondNumber);
     }
-    
+    // The clear button was pressed
+    else if (button.value === "clear") {
+      display.value = "";
+    }
+
     else if (button.value) {
       display.value += button.value;
     }
