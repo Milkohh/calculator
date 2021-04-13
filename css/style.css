@@ -11,9 +11,10 @@ body {
   padding: 15px 10px;
 }
 
-#display input {
+#display-div input {
+  text-align: right;
   width: 125px;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 #keypad {

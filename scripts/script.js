@@ -48,3 +48,34 @@ function operate(x, operator, y) {
 
   return result;
 }
+
+const display = document.getElementById("display-text");
+display.value = "";
+
+const buttons = document.getElementById("keypad").querySelectorAll("button");
+
+const operators = ["*", "+", "-", "/"];
+
+let firstNumber = 0;
+let secondNumber = 0;
+let operator = "";
+
+buttons.forEach((button) => {
+  button.addEventListener("click", () => {
+    // If an operator was clicked
+    if (operators.includes(button.value)) {
+      firstNumber = parseInt(display.value, 10);
+      operator = button.value;
+      display.value = "";
+    } 
+    // If the equals sign was clicked
+    else if (button.value === "=") {
+      secondNumber = parseInt(display.value, 10);
+      display.value = operate(firstNumber, operator, secondNumber);
+    }
+    
+    else if (button.value) {
+      display.value += button.value;
+    }
+  });
+});
