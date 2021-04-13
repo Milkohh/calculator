@@ -20,8 +20,17 @@ body {
 #keypad {
   display: flex;
   margin-top: 15px;
-  flex-flow: column nowrap;
   align-items: flex-end;
+  flex-flow: column nowrap;
+  background-color: beige;
+}
+
+.number-row {
+  display: flex;
+}
+
+#zero {
+  width: 60px !important;
 }
 
 #keypad button {

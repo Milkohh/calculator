@@ -14,7 +14,7 @@ function divide(x, y) {
   if (y === 0) {
     throw new Error("Can't divide by zero!");
   }
-  return x / y;
+  return Math.round(x / y * 100) / 100;
 }
 
 function operate(x, operator, y) {
@@ -56,29 +56,47 @@ const buttons = document.getElementById("keypad").querySelectorAll("button");
 
 const operators = ["*", "+", "-", "/"];
 
-let firstNumber = 0;
-let secondNumber = 0;
+let firstNumber;
+let secondNumber;
 let operator = "";
+
+let clearInput = false;
 
 buttons.forEach((button) => {
   button.addEventListener("click", () => {
     // If an operator was clicked
     if (operators.includes(button.value)) {
-      firstNumber = parseInt(display.value, 10);
+      if (firstNumber === undefined) {
+        firstNumber = parseInt(display.value, 10);
+      } else {
+        secondNumber = parseInt(display.value, 10);
+        firstNumber = operate(firstNumber, operator, secondNumber);
+      }
+
       operator = button.value;
-      display.value = "";
-    } 
+      clearInput = true;
+    }
     // If the equals sign was clicked
     else if (button.value === "=") {
       secondNumber = parseInt(display.value, 10);
       display.value = operate(firstNumber, operator, secondNumber);
+
+      firstNumber = undefined;
+      secondNumber = undefined;
+      clearInput = true;
     }
     // The clear button was pressed
     else if (button.value === "clear") {
       display.value = "";
-    }
-
+      firstNumber = undefined;
+      secondNumber = undefined;
+    } 
+    // A number was pressed
     else if (button.value) {
+      if (clearInput) {
+        display.value = "";
+        clearInput = !clearInput;
+      }
       display.value += button.value;
     }
   });
